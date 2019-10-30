@@ -1,5 +1,6 @@
 //record.js
 // const util = require('../../utils/util.js')
+import Dialog from 'vant-weapp/dialog/dialog';
 const app = getApp();
 /*const citys = {
     '浙江': ['杭州', '宁波', '温州', '嘉兴', '湖州'],
@@ -60,7 +61,17 @@ Page({
         })
     },
     addRecord() {
-        console.log(this.data.record)
+        if (!this.data.record.amount||!this.data.record.typeId) {
+            Dialog.alert({
+                message: '请填写必填项哦'
+            }).then(() => {
+                // on close
+            });
+            return
+        }
+        wx.showLoading({
+            title: '加载中',
+        })
         app.$http({
             url: '/finance/add',
             method: "post",
@@ -76,7 +87,10 @@ Page({
                     delta: 1
                 })
             }
+            wx.hideLoading()
 
+        }).then(res=>{
+            wx.hideLoading()
         })
     },
     changeAmount(value) {

@@ -1,11 +1,8 @@
 {
   "pages": [
-    "pages/finance/finance",
     "pages/index/index",
-       
-        
-    
     "pages/record/record",
+    "pages/finance/finance",
     "pages/us/us",
     "pages/logs/logs"
   ],

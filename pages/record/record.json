@@ -3,6 +3,7 @@
     "van-picker": "vant-weapp/picker",
     "van-popup": "vant-weapp/popup",
     "van-field": "vant-weapp/field",
-    "van-button": "vant-weapp/button"
+    "van-button": "vant-weapp/button",
+    "van-dialog": "vant-weapp/dialog"
   }
 }

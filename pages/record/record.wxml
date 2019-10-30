@@ -1,41 +1,60 @@
 <!--record.wxml-->
-<view class="recordContainer">
-    <van-cell-group>
-        <view bindtap="chooseType">
-            <van-field
-                    value="{{ record.typeName }}"
-                    type="text"
-                    label="收支类型"
-                    placeholder="请点击选择"
-                    required
-                    border="true"
-                    readonly
-                    clickable
-            />
-        </view>
-        <van-field
-                value="{{ record.amount }}"
-                required
-                clearable
-                label="金额"
-                type="number"
-                placeholder="请输入收支金额"
-                border="true"
-                bind:change="changeAmount"
-        />
+<view class="recordContainer" style="padding:15rpx;">
+    <view>
+        <image class="header-bg" src="/pages/static/icon/bc.jpg" style="display: block;width: 100%"></image>
+    </view>
 
-        <van-field
-                value="{{ record.remark }}"
-                type="text"
-                label="备注"
-                placeholder="可以具体描述"
-                required
-                clearable
-                border="true"
-                bind:change="changeRemark"
-        />
-        <van-button type="primary" size="large" bind:click="addRecord">大号按钮</van-button>
-    </van-cell-group>
+    <!--<view style="text-align: left;font-size: 25rpx;color: lightgray;">
+        <text style="margin-top: 50rpx;margin-left:35rpx;">没有合适的收支类型，请联系管理员哦</text>
+    </view>-->
+
+    <view style="margin-top: 50rpx;">
+        <van-cell-group>
+            <view class="vanClass" bindtap="chooseType">
+                <van-field
+                        value="{{ record.typeName }}"
+                        type="text"
+                        label="收支类型"
+                        placeholder="请点击选择"
+                        required
+                        border="true"
+                        readonly
+                        clickable
+                />
+            </view>
+            <view class="vanClass">
+                <van-field
+                        value="{{ record.amount }}"
+                        required
+                        clearable
+                        label="金额"
+                        type="digit"
+                        placeholder="请输入收支金额"
+                        maxlength="6"
+                        border="true"
+                        bind:change="changeAmount"
+                />
+            </view>
+            <view class="vanClass">
+                <van-field
+                        value="{{ record.remark }}"
+                        type="text"
+                        label="备注"
+                        placeholder="可以具体描述"
+                        clearable
+                        maxlength="32"
+                        border="true"
+                        clearable
+                        bind:change="changeRemark"
+                />
+            </view>
+            <view class="vanClass" style="margin-top: 30rpx">
+                <van-button type="primary" size="large" bind:click="addRecord">提交</van-button>
+            </view>
+            <van-dialog id="van-dialog" />
+        </van-cell-group>
+    </view>
+
     <van-popup show="{{ show }}" position="bottom" custom-style="height: 50%;" bind:close="onClose">
         <van-picker show-toolbar columns="{{ columns }}" title="收支类型" bind:cancel="onCancel"
                     bind:confirm="onConfirm" bind:change="onChange"/>
