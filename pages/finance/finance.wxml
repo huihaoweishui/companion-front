@@ -1,0 +1,88 @@
+<!--record.wxml-->
+<script src="../../config/baseUrl.js"></script>
+<view class="financeContainer">
+    <view class= "containerChildClass1" style="text-align: center;background-color:Snow	;padding: 25rpx;font-size: 30rpx;">
+        <text bindtap="showTypes">全部交易类型</text>
+        <image style="width: 15rpx;height: 15rpx; margin-left: 15rpx" src="/pages/static/icon/triangleDown.png" bindtap="showTypes"></image>
+        <navigator url="/pages/record/record?title=navigate" style="float:right">
+            <van-icon name="plus"/>
+        </navigator>
+    </view>
+    <view class= "containerChildClass2"style="padding: 35rpx; background-color: ghostwhite">
+        <view bindtap="showDate">
+            <text style="font-size: 28rpx">{{year}}年{{month}}月</text>
+            <van-icon name="arrow-down" style="font-size: 20rpx"/>
+        </view>
+        <view class="mainItem">
+            <view class="item1">
+                <text class="littleText">支出 ¥{{totalOut}}</text>
+                <text class="littleText"> 收入 ¥{{totalIn}}</text>
+            </view>
+
+            <view class="item2">
+                <text class="littleText">|</text>
+            </view>
+            <view class="item3" style="text-align: right">
+                <text class="littleText">月账单</text>
+                <van-icon name="arrow" class="littleText" style="font-size: 20rpx"/>
+            </view>
+        </view>
+    </view>
+    <!--具体的交易记录-->
+    <scroll-view scroll-with-animation="true" scroll-y="true" style="height:{{scrollHeight}}px;" bindscrolltolower="bindscrolltolower">
+        <view class="recordClass" wx:for="{{records}}" wx:key="{{item.id}}">
+            <view class="typeIcon">
+                <image src="{{item.icon}}" style="width: 120rpx;height: 120rpx;border-radius: 50%"/>
+            </view>
+            <view class="detail">
+                <view>
+                    <text style="font-size: 28rpx">{{item.name}}</text>
+                </view>
+                <view class="mainItem2">
+                    <view class="item4">
+                        <text class="littleText">{{item.dateTime}}</text>
+                    </view>
+                    <view class="item5" style="text-align: right; margin-right: 25rpx;">
+                        <!--注意text内容不要换行显示 坑-->
+                        <text class="littleText" style="font-size: 30rpx;color: {{item.typeId===1?'orange':'#000'}};">{{item.amount*(item.typeId===1?1:-1)}}
+                        </text>
+                    </view>
+                </view>
+                <view>
+                    <text class="littleText">{{item.remark || ''}}</text>
+                </view>
+                <van-divider hairline/>
+            </view>
+        </view>
+    </scroll-view>
+    <!--交易类型弹出层-->
+    <van-popup show="{{ show }}" position="bottom" custom-style="height: 30%;" bind:close="onClose">
+        <van-tabs active="{{ active }}" bind:change="onChange">
+            <van-tab title="收入类型">
+                <van-grid column-num="3" clickable="true">
+                    <van-grid-item use-slot="true" wx:key="{{item.id}}" wx:for-index="idx" wx:for="{{ inTypes }}">
+                        <text class="gridClass" bindtap="inSelect" data-id="{{idx}}">{{item.name}}</text>
+                    </van-grid-item>
+                </van-grid>
+            </van-tab>
+            <van-tab title="支出类型">
+                <van-grid column-num="3">
+                    <van-grid-item use-slot="true" wx:key="{{item.id}}" wx:for-index="idx" wx:for="{{ outTypes }}">
+                        <text class="gridClass" bindtap="outSelect" data-id="{{idx}}">{{item.name}}</text>
+                    </van-grid-item>
+                </van-grid>
+            </van-tab>
+        </van-tabs>
+
+    </van-popup>
+    <!--时间选择框-->
+    <van-popup show="{{ show2 }}" position="bottom" custom-style="height: 30%;" bind:close="onClose2">
+        <van-datetime-picker
+                type="year-month"
+                value="{{ currentDate }}"
+                visible-item-count="3"
+                bind:confirm="onInput"
+                bind:cancel="cancelDate"
+        />
+    </van-popup>
+</view>

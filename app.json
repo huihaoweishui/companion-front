@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/finance/finance",
+    "pages/index/index",
+       
+        
+    
+    "pages/record/record",
+    "pages/us/us",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "伴侣点滴",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#D3D3D3",
+    "selectedColor": "#FF0000",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "pages/static/icon/homeGrey.png",
+        "selectedIconPath": "pages/static/icon/homeRed.png"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "动态",
+        "iconPath": "pages/static/icon/communityGrey.png",
+        "selectedIconPath": "pages/static/icon/communityRed.png"
+      },
+      {
+        "pagePath": "pages/us/us",
+        "text": "我们",
+        "iconPath": "pages/static/icon/loveGrey.png",
+        "selectedIconPath": "pages/static/icon/loveRed.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "van-icon": "vant-weapp/icon",
+    "van-divider": "vant-weapp/divider"
+  }
+}

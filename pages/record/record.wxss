@@ -1,0 +1,23 @@
+.items {
+  display: flex;
+  align-items: center;
+}
+
+/**文字与图标中线平齐*/
+
+.van-icon, .van-icon::before {
+  display: block !important;
+}
+
+.icon1 {
+  flex-grow: 1;
+}
+
+.text1 {
+  flex-grow: 1;
+}
+
+.icon2 {
+  flex-grow: 8;
+}
+

@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "账单",
+  "usingComponents": {
+    "van-popup": "vant-weapp/popup",
+    "van-grid": "vant-weapp/grid",
+    "van-grid-item": "vant-weapp/grid-item",
+    "van-tab": "vant-weapp/tab",
+    "van-tabs": "vant-weapp/tabs",
+    "van-datetime-picker": "vant-weapp/datetime-picker",
+    "van-dialog": "vant-weapp/dialog"
+  }
+}

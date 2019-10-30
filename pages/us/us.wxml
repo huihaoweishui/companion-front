@@ -1,0 +1,17 @@
+<!--record.wxml-->
+<view class="usContainer">
+<navigator url="/pages/finance/finance">
+  <view class="items" style="padding-top:25rpx">
+    <view class="icon1" style="margin-left:25rpx">
+      <van-icon name="gold-coin-o" />
+    </view>
+    <view class="text1">
+      <text>财政</text>
+    </view>
+    <view class="icon2" style="text-align:right;margin-right:25rpx">
+      <van-icon name="arrow"/>
+    </view>
+  </view>
+  <van-divider hairline/>
+  </navigator>
+</view>

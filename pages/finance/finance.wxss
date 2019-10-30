@@ -1,0 +1,59 @@
+/*注意在css文件中不要使用webstorm的格式化代码 ，会将rpx的地方 多加空格导致css失效*/
+.littleText {
+    font-size: 25rpx;
+    color: darkgrey;
+}
+
+/*下拉选时间start*/
+.mainItem {
+    display: flex;
+    align-items: center;
+}
+
+.item1 {
+    flex-grow: 8;
+}
+
+.item2 {
+    flex-grow: 1;
+}
+
+.item3 {
+    flex-grow: 1;
+}
+
+/*end*/
+/*交易记录start*/
+.recordClass {
+    display: flex;
+    align-items: center;
+    padding: 8rpx;
+}
+
+.typeIcon {
+    flex-grow: 1;
+    margin-left: 30rpx;
+    margin-bottom: 28rpx;
+}
+
+.detail {
+    flex-grow: 9;
+}
+
+.mainItem2 {
+    display: flex;
+    align-items: center;
+}
+
+.item4 {
+    flex-grow: 8;
+}
+
+.item5 {
+    flex-grow: 2;
+}
+.gridClass{
+    font-size: 30rpx;
+    color: darkkhaki;
+}
+
