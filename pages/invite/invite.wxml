@@ -1,0 +1,14 @@
+<!--record.wxml-->
+<view class="container log-list">
+    <text wx:if="{{!hasPartner}}">你愿意么?</text>
+    <text wx:else>Congratulations!</text>
+    <button wx:if="{{canIUse&&!hasPartner}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">解锁恋爱之旅</button>
+    <block wx:elif="{{hasPartner}}">
+        <image class="userinfo-avatar" src="{{partner.avatarUrl}}" mode="cover"></image>
+        <text class="userinfo-nickname">Your partner :{{partner.nickName}}</text>
+        <view class="usermotto">
+            <text class="user-motto">{{motto}}</text>
+        </view>
+    </block>
+    <view wx:else>请升级微信版本</view>
+</view>

@@ -20,11 +20,11 @@ App({
                 }).then((res) => {
                     // 获取用户信息
                     this.openId = res.data;
-                    if(res.data){
-                      wx.setStorage({
-                        key: "openId",
-                        data: res.data
-                      })
+                    if (res.data) {
+                        wx.setStorage({
+                            key: "openId",
+                            data: res.data
+                        })
                     }
                 })
             }
@@ -49,6 +49,15 @@ App({
             }
         })
 
+    },
+    onShow(ops) {
+    },
+    updateUserInfo(userInfo) {
+        return this.$http({
+            url: '/companion/info',
+            contentType: 'application/json',
+            data: userInfo
+        })
     },
     globalData: {
         userInfo: null
