@@ -1,6 +1,6 @@
 export default {
-  baseUrl: 'http://192.168.0.146:9999',
-  // baseUrl:'https://boot.relaxu.top', // 测试
+  // baseUrl: 'http://192.168.0.146:9999',
+  baseUrl:'https://boot.relaxu.top', // 测试
   // baseUrl:'http://47.105.113.6:10086',//线上测试环境
   // baseUrl:'https://apiwx.ctgoe.cn',
   //畅运汽配 小程序appid

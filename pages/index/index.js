@@ -98,16 +98,10 @@ Page({
             }
         }).then(res => {
             if (res.data) {
-                const loveDay = res.data.loveDay;
-                const startDate = new Date(loveDay);
-                const endDate = new Date();
-                const diff = endDate.getTime() - startDate.getTime();//时间差的毫秒数
-                //计算出相差天数
-                const num = Math.ceil(diff / (24 * 3600 * 1000));
                 this.setData({
                     ['partner.nickName']: res.data.nickName,
                     ['partner.avatarUrl']: res.data.avatarUrl,
-                    motto: '这是你和' + res.data.gender + '在一起的第' + num + '天'
+                    motto: '这是你和' + res.data.gender + '在一起的第' + res.data.togetherDay + '天'
                 })
             }
         })
